@@ -1,14 +1,19 @@
-import html from 'choo/html';
-import headerMobile from '../header-mobile';
-import sidebar from '../sidebar';
-import content from '../content';
+const html = require('choo/html');
+const sf = require('sheetify');
+const sidebar = require('../sidebar');
+const content = require('../content');
 
-export default (state, prev, send, view) => (
-  html`
-    <main class="main container--main">
-      ${headerMobile(state, prev, send)}
+module.exports = (state, prev, send, view) => {
+  const style = sf`
+    :host {
+      background-color: red;
+    }
+  `;
+
+  return html`
+    <main class=${style}>
       ${sidebar(state, prev, send)}
       ${content(state, prev, send, view)}
     </main>
-  `
-);
+  `;
+};

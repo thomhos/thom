@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "budo src/index.js -P -s=index.js --live --open -- -t babelify -t yo-yoify -t sheetify/transform",
-    "build": "mkdir -p dist && browserify src/index.js -o dist/index.js -t envify -g babelify -g yo-yoify -g unassertify -g sheetify/transform -g uglifyify -p [css-extract -o dist/bundle.css] src/index.js | uglifyjs -c",
-    "testbuild": "budo dist/index.js -P --open"
+    "prestart": "npm run build",
+    "start": "npm-run-all --parallel start:*",
+    "start:serve": "browser-sync start --server 'build' --files 'build'",
+    "start:watch": "onchange 'src/**.*' -- npm run build",
+    "prebuild": "rimraf build && mkdir -p build",
+    "build": "copyfiles -f src/index.html build && browserify src/index.js -t yo-yoify -t [ sheetify/transform -u sheetify-cssnext ] -p [ css-extract -o build/bundle.css ] src/index.js -g [ babelify --presets [ es2015 ] ] -o build/bundle.js"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +20,11 @@
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
     "budo": "^9.1.0",
+    "copyfiles": "^1.0.0",
     "css-extract": "^1.1.2",
     "envify": "^3.4.1",
+    "npm-run-all": "^3.1.0",
+    "onchange": "^3.0.2",
     "sheetify-cssnext": "^1.0.7",
     "uglify-js": "^2.7.3",
     "uglifyify": "^3.0.3",

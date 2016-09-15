@@ -1,9 +1,9 @@
-import html from 'choo/html';
-import headerComponent from './header';
-import navigationComponent from './navigation';
-import footerComponent from './footer';
+const html = require('choo/html');
+const headerComponent = require('./header');
+const navigationComponent = require('./navigation');
+const footerComponent = require('./footer');
 
-export default (state, prev, send) => {
+module.exports = (state, prev, send) => {
   // Define sidebar content.
   const { navigation, socials, languages } = state.sidebar;
 

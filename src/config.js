@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   // Content vars
   sidebar: {
     navigation: [

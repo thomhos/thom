@@ -1,6 +1,6 @@
-import html from 'choo/html';
+const html = require('choo/html');
 
-export default (state, prev, send) => (
+module.exports = (state, prev, send) => (
   html`
     <div class="row">
       <div class="col-s-12 col-m-6">

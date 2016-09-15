@@ -1,6 +1,6 @@
-import choo from 'choo';
-import models from './models';
-import routes from './routes';
+const choo = require('choo');
+const models = require('./models');
+const routes = require('./routes');
 
 // Define the app instance
 const app = choo();
@@ -23,5 +23,5 @@ app.use({
 // Run forrest, run
 const tree = app.start();
 
-// append the app tree
+// append the app tree 
 document.body.appendChild(tree);

@@ -1,7 +1,7 @@
-import html from 'choo/html';
-import main from '../components/main';
+const html = require('choo/html');
+const main = require('../components/main');
 
-export default (state, prev, send, view) => (
+module.exports = (state, prev, send, view) => (
   html`
     ${main(state, prev, send, view)}
   `

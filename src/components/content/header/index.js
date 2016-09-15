@@ -1,6 +1,6 @@
-import html from 'choo/html';
+const html = require('choo/html');
 
-export default (state, prev, send) => {
+module.exports = (state, prev, send) => {
   // Sidebar menu state
   const { activeState } = state.sidebar;
 

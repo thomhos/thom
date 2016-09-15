@@ -1,17 +1,15 @@
-import mainView from './main';
-import homeView from './home';
-import projectsView from './projects';
-import projectView from './project';
-import articlesView from './articles';
-import articleView from './article';
+const mainView = require('./main');
+const homeView = require('./home');
+const projectsView = require('./projects');
+const projectView = require('./project');
+const articlesView = require('./articles');
+const articleView = require('./article');
 
-export {
-
-  mainView as main,
-  homeView as home,
-  projectsView as projects,
-  projectView as project,
-  articlesView as articles,
-  articleView as article,
-
+module.exports = {
+  main: mainView ,
+  home: homeView,
+  projects: projectsView,
+  project: projectView,
+  articles: articlesView,
+  article: articleView,
 };

@@ -1,13 +1,11 @@
-import html from 'choo/html';
-import socialIcons from './socialIcons';
-import languageSwitch from './languageSwitch';
+const html = require('choo/html');
+const socialIcons = require('./socialIcons');
 
-export default (state, prev, send) => (
+module.exports = (state, prev, send) => (
   // Return the rendered HTML
   html`
     <footer>
       ${socialIcons(state, prev, send)}
-      ${languageSwitch(state, prev, send)}
     </footer>
   `
 

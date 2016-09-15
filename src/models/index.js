@@ -1,7 +1,7 @@
 // import all models here
-import sidebarModel from './sidebar.js';
+const sidebarModel = require('./sidebar.js');
 
-export default (app) => {
+module.exports = (app) => {
 
   // mount all models
   app.model(sidebarModel);

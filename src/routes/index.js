@@ -1,20 +1,20 @@
-import { main, home, projects, project, articles, article } from '../views';
+const views = require('../views');
 
-export default (app) => {
+module.exports = (app) => {
 
   // This will render the view inside the view area outside of the navigation
   const subview = (view) => (state, prev, send) => (
-    main(state, prev, send, view)
+    views.main(state, prev, send, view)
   );
 
   // Mount all routes
   app.router((route) => [
-    route('/', subview(home)),
-    route('/projects', subview(projects), [
-      route('/:projectId', subview(project)),
+    route('/', subview(views.home)),
+    route('/projects', subview(views.projects), [
+      route('/:projectId', subview(views.project)),
     ]),
-    route('/articles', subview(articles), [
-      route('/:articleId', subview(article)),
+    route('/articles', subview(views.articles), [
+      route('/:articleId', subview(views.article)),
     ]),
   ]);
 

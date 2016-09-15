@@ -1,6 +1,6 @@
-import config from '../config';
+const config = require('../config');
 
-export default {
+module.exports = {
   namespace: 'sidebar',
   state: {
     heading: {},

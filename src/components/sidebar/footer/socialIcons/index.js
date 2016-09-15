@@ -1,6 +1,6 @@
-import html from 'choo/html';
+const html = require('choo/html');
 
-export default (state, prev, send) => {
+module.exports = (state, prev, send) => {
 
   // Set the social variables
   const { socials } = state.sidebar;
