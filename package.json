@@ -21,6 +21,7 @@
     "envify": "^3.4.1",
     "sheetify-cssnext": "^1.0.7",
     "uglify-js": "^2.7.3",
+    "uglifyify": "^3.0.3",
     "unassertify": "^2.0.3",
     "yo-yoify": "^3.4.1"
   },
