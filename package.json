@@ -25,6 +25,7 @@
     "envify": "^3.4.1",
     "npm-run-all": "^3.1.0",
     "onchange": "^3.0.2",
+    "rfr": "^1.2.3",
     "sheetify-cssnext": "^1.0.7",
     "uglify-js": "^2.7.3",
     "uglifyify": "^3.0.3",

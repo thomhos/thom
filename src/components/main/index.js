@@ -6,14 +6,15 @@ const content = require('../content');
 module.exports = (state, prev, send, view) => {
   const style = sf`
     :host {
-      background-color: red;
+      height: 100%;
+      overflow: hidden;
     }
   `;
 
   return html`
-    <main class=${style}>
+    <div class=${style}>
       ${sidebar(state, prev, send)}
       ${content(state, prev, send, view)}
-    </main>
+    </div>
   `;
 };

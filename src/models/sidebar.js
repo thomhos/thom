@@ -1,4 +1,4 @@
-const config = require('../config');
+const config = require('../config/app.js');
 
 module.exports = {
   namespace: 'sidebar',
