@@ -1,0 +1,63 @@
+// __ Montserrat
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/montserrat-regular-webfont.eot');
+    src: url('/fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/montserrat-regular-webfont.woff2') format('woff2'),
+         url('/fonts/montserrat-regular-webfont.woff') format('woff'),
+         url('/fonts/montserrat-regular-webfont.ttf') format('truetype'),
+         url('/fonts/montserrat-regular-webfont.svg#montserratregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/montserrat-bold-webfont.eot');
+    src: url('/fonts/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/montserrat-bold-webfont.woff2') format('woff2'),
+         url('/fonts/montserrat-bold-webfont.woff') format('woff'),
+         url('/fonts/montserrat-bold-webfont.ttf') format('truetype'),
+         url('/fonts/montserrat-bold-webfont.svg#montserratbold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+// __ Open Sans
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/opensans-light-webfont.eot');
+    src: url('/fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/opensans-light-webfont.woff2') format('woff2'),
+         url('/fonts/opensans-light-webfont.woff') format('woff'),
+         url('/fonts/opensans-light-webfont.ttf') format('truetype'),
+         url('/fonts/opensans-light-webfont.svg#opensanslight') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/opensans-regular-webfont.eot');
+    src: url('/fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/opensans-regular-webfont.woff2') format('woff2'),
+         url('/fonts/opensans-regular-webfont.woff') format('woff'),
+         url('/fonts/opensans-regular-webfont.ttf') format('truetype'),
+         url('/fonts/opensans-regular-webfont.svg#opensansregular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/opensans-bold-webfont.eot');
+    src: url('/fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/opensans-bold-webfont.woff2') format('woff2'),
+         url('/fonts/opensans-bold-webfont.woff') format('woff'),
+         url('/fonts/opensans-bold-webfont.ttf') format('truetype'),
+         url('/fonts/opensans-bold-webfont.svg#montserratbold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}

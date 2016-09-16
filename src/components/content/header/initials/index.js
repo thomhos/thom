@@ -5,26 +5,29 @@ module.exports = (state, prev, send) => {
   // Sidebar menu state
   const { activeState } = state.sidebar;
   const style = sf`
+    @import '../../../../styles/vars';
+
     :host {
       position: absolute;
       display: block;
-      height: 20px;
+      height: 50px;
       width: auto;
 
-      top: 50%;
+      top: 0;
       left: 70px;
-      transform: translateY(-50%);
 
-      font-size: 20px;
-    }
+      font-size: 2.4rem;
+      font-family: $font-stack-primary;
+      font-weight: $font-weight-bold;
+      line-height: 50px;
 
-    @media screen and ( min-width: 768px ) {
-      :host {
-        top: 50%;
+      @media screen and ( min-width: 768px ) {
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%);
       }
     }
+
+
   `;
 
   // Return the rendered HTML

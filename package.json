@@ -8,8 +8,10 @@
     "start": "npm-run-all --parallel start:*",
     "start:serve": "browser-sync start --server 'build' --files 'build'",
     "start:watch": "onchange 'src/**.*' -- npm run build",
-    "prebuild": "rimraf build && mkdir -p build",
-    "build": "copyfiles -f src/index.html build && browserify src/index.js -t yo-yoify -t [ sheetify/transform -u sheetify-cssnext ] -p [ css-extract -o build/bundle.css ] src/index.js -g [ babelify --presets [ es2015 ] ] -o build/bundle.js"
+    "prebuild": "rimraf build && mkdir -p build && npm-run-all copy:*",
+    "build": "browserify src/index.js -t yo-yoify -t [ sheetify/transform -u sheetify-sass -u sheetify-cssnext ] -p [ css-extract -o build/bundle.css ] src/index.js -g [ babelify --presets [ es2015 ] ] -o build/bundle.js",
+    "copy:html": "copyfiles -f src/index.html build",
+    "copy:fonts": "copyfiles -f src/styles/fonts/* build/fonts"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +29,8 @@
     "onchange": "^3.0.2",
     "rfr": "^1.2.3",
     "sheetify-cssnext": "^1.0.7",
+    "sheetify-sass": "^1.0.1",
+    "sheetify-variables": "^1.0.4",
     "uglify-js": "^2.7.3",
     "uglifyify": "^3.0.3",
     "unassertify": "^2.0.3",

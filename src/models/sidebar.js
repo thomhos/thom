@@ -8,6 +8,7 @@ module.exports = {
     socials: [],
     languages: [],
     activeState: false,
+    activeRoute: ''
   },
   effects: {
     fetchContent: (data, state, send, done) => {
@@ -23,6 +24,9 @@ module.exports = {
     }),
     setActiveState: (data, state) => ({
       activeState: data,
+    }),
+    setActiveRoute: (data, state) => ({
+      activeRoute: data,
     }),
   },
 };

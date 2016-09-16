@@ -1,0 +1,52 @@
+@import 'vars';
+
+html {
+
+  font-family: $font-stack-secondary;
+  font-size: $font-size-root;
+  color: $color-text;
+
+  background-color: $color-white;
+  min-height: 100%;
+
+  &.no-scroll {
+
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+
+  }
+}
+
+
+html, body {
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  min-width: 320px;
+  min-height: 100%;
+
+}
+
+body {
+
+  overflow: hidden;
+  font-size: $font-size-body;
+  line-height: $font-line-height-body;
+  font-weight: $font-weight-regular;
+
+}
+
+
+// Render fixes
+// @see: http://www.intridea.com/blog/2014/5/8/better-font-smoothing-in-chrome-on-mac-os-x
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+only screen and (min-device-pixel-ratio: 1.25),
+only screen and (min-resolution: 200dpi),
+only screen and (min-resolution: 1.25dppx) {
+
+  html, body, button{
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}

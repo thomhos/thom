@@ -7,7 +7,9 @@ const routes = require('./routes');
 const app = choo();
 
 // Add the base styles
-sf('./styles/normalize.css', { global: true })
+sf('./styles/normalize.scss', { global: true })
+sf('./styles/typography.scss', { global: true })
+sf('./styles/html.scss', { global: true })
 
 // Mount all the models
 models(app);
@@ -29,3 +31,4 @@ const tree = app.start();
 
 // append the app tree
 document.body.appendChild(tree);
+document.body.classList.remove('is--loading')

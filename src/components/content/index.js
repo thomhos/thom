@@ -14,7 +14,13 @@ module.exports = (state, prev, send, view) => {
       min-width: 320px;
       max-width: 1200px;
       margin: 0 auto;
+      padding: 20px;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+
+      @media screen and (min-width: 768px) {
+        min-width: 768px;
+      }
     }
   `;
 

@@ -7,10 +7,12 @@ const language = require('./language');
 
 module.exports = (state, prev, send) => {
   const style = sf`
+    @import '../../../styles/vars';
+
     :host {
       min-width: 320px;
       font-size: 0;
-      border-bottom: 1px solid #C9C9C9;
+      border-bottom: 1px solid $color-grey;
     }
   `;
   // Return the rendered HTML

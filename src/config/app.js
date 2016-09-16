@@ -4,7 +4,7 @@ module.exports = {
     navigation: [
       {
         slug: '/',
-        label: 'Home',
+        label: 'All content',
       },
       {
         slug: '/projects',
@@ -18,15 +18,19 @@ module.exports = {
 
     socials: [
       {
-        url: '/social',
+        url: 'mailto:thom.hos@gmail.com',
         icon: 'email',
       },
       {
-        url: '/social',
+        url: 'http://www.github.com/thomhos',
         icon: 'github',
       },
       {
-        url: '/social',
+        url: 'http://www.facebook.com/thomhos',
+        icon: 'facebook',
+      },
+      {
+        url: 'https://nl.linkedin.com/in/thomhos',
         icon: 'linkedin',
       },
     ],

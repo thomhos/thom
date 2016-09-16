@@ -4,6 +4,8 @@ const sf = require('sheetify');
 module.exports = (state, prev, send) => {
   // Sidebar menu state
   const style = sf`
+    @import '../../../../styles/vars';
+
     :host {
       display: block;
       height: 50px;
@@ -11,16 +13,18 @@ module.exports = (state, prev, send) => {
 
       float: right;
 
-      border-left: 1px solid #C9C9C9;
+      border-left: 1px solid $color-grey;
       background-color: transparent;
 
       transition: background-color 0.2s ease-out;
+
+      &:hover {
+        background-color: $color-grey;
+        cursor: pointer;
+      }
     }
 
-    :host:hover {
-      background-color: #C9C9C9;
-      cursor: pointer;
-    }
+
   `;
 
   // Return the rendered HTML

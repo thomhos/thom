@@ -4,28 +4,28 @@ const sf = require('sheetify');
 module.exports = (state, prev, send) => {
   // Sidebar menu state
   const { activeState } = state.sidebar;
-  
+
   const style = sf`
-    @import '../../../../styles/vars';
+    @import '../../../styles/vars';
 
     :host {
-      display: inline-block;
+      position: absolute;
+      display: block;
+      top: 0;
+      right: 0;
+
       height: 50px;
       width: 50px;
 
-      border-right: 1px solid $color-grey;
-      background-color: transparent;
+      visibility: hidden;
 
-      transition: background-color 0.2s ease-out;
-
-      @media screen and (min-width: 1024px) {
-        &:hover {
-          background-color: $color-grey;
-          cursor: pointer;
-        }
+      @media screen and (min-width: 769px ) {
+        display: none;
       }
 
       &[data-activated="true"] {
+        visibility: visible;
+
         span {
           &:nth-child(1) {
             top: 25px;
@@ -50,7 +50,7 @@ module.exports = (state, prev, send) => {
       width: 20px;
       height: 1px;
       left: 15px;
-      background-color: $color-black;
+      background-color: $color-white;
       transform: rotate(0);
       opacity: 1;
 
