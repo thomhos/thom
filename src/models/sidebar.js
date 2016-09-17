@@ -8,16 +8,16 @@ module.exports = {
     socials: [],
     languages: [],
     activeState: false,
-    activeRoute: ''
+    activeRoute: '/'
   },
   effects: {
-    fetchContent: (data, state, send, done) => {
+    fetch: (data, state, send, done) => {
       const { sidebar } = config;
-      send('sidebar:receiveContent', sidebar, done);
+      send('sidebar:receive', sidebar, done);
     },
   },
   reducers: {
-    receiveContent: (data, state) => ({
+    receive: (data, state) => ({
       navigation: data.navigation,
       socials: data.socials,
       languages: data.languages,

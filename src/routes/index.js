@@ -1,21 +1,39 @@
 const views = require('../views');
+const config = require('../config/app.js');
 
+/*
+ *  Mount all routes and pass their name to the view function
+ */
 module.exports = (app) => {
 
-  // This will render the view inside the view area outside of the navigation
-  const subview = (view) => (state, prev, send) => (
-    views.main(state, prev, send, view)
-  );
+  const { routes } = config;
 
-  // Mount all routes
-  app.router((route) => [
-    route('/', subview(views.home)),
-    route('/projects', subview(views.projects), [
-      route('/:projectId', subview(views.project)),
+  app.router('/', (route) => [
+    route(routes.home, subview(views.home, routes.home)),
+    route(routes.articles, subview(views.articles, routes.articles), [
+      route('/:id', subview(views.article, routes.articles)),
     ]),
-    route('/articles', subview(views.articles), [
-      route('/:articleId', subview(views.article)),
-    ]),
+    route(routes.about, subview(views.about, routes.about))
   ]);
+
+  /*
+   *  This function will render the view inside the main composition
+   *  This is done to prevent the sidebar from re-rendering on route change
+   *  It checks the current route and activeRoute to update the menu
+   */
+  const subview = (view, route) => (state, prev, send) => {
+
+    const { activeRoute, activeState } = state.sidebar;
+
+    if (route !== activeRoute) {
+      send('sidebar:setActiveRoute', route);
+
+      if(window.screen && window.screen.width <= 768) {
+        send('sidebar:setActiveState', !activeState);
+      }
+    };
+
+    return views.main(state, prev, send, view)
+  };
 
 };

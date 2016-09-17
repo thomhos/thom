@@ -1,11 +1,17 @@
 const html = require('choo/html');
 
-module.exports = (state, prev, send) => (
+module.exports = (state, prev, send) => {
 
-  html`
-    <section>
-      <p>Article</p>
+  const articleId = state.params;
+
+  const fetchArticle = () => {
+    console.log('loaded')
+  }
+
+  return html`
+    <section onload=${fetchArticle}>
+      <p>${() => { console.log('init') }}</p>
     </section>
-  `
+  `;
 
-);
+};

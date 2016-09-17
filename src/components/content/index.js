@@ -9,17 +9,16 @@ module.exports = (state, prev, send, view) => {
       overflow: hidden;
     }
 
-    section {
+    > div {
       max-height: calc( 100% - 50px );
-      min-width: 320px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
+      width: 100%;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
 
-      @media screen and (min-width: 768px) {
-        min-width: 768px;
+      > section {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px;
       }
     }
   `;
@@ -28,9 +27,9 @@ module.exports = (state, prev, send, view) => {
   return html`
     <main class="${style}">
       ${header(state, prev, send)}
-      <section>
+      <div>
         ${view(state, prev, send)}
-      </section>
+      </div>
     </main>
   `;
 };

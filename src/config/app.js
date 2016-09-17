@@ -1,4 +1,13 @@
 module.exports = {
+  // Api endpoints
+  api: {
+    articles: '/api/articles'
+  },
+  routes: {
+    home: '/',
+    articles: '/articles',
+    about: '/about'
+  },
   // Content vars
   sidebar: {
     navigation: [
@@ -7,8 +16,8 @@ module.exports = {
         label: 'All content',
       },
       {
-        slug: '/projects',
-        label: 'Projects',
+        slug: '/about',
+        label: 'About me',
       },
       {
         slug: '/articles',

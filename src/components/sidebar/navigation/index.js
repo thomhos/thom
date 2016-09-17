@@ -8,7 +8,7 @@ module.exports = (state, prev, send) => {
     :host {
       padding: 40px 0;
 
-      button {
+      a {
         position: relative;
         display: block;
 
@@ -20,6 +20,7 @@ module.exports = (state, prev, send) => {
         letter-spacing: 1px;
         font-size: 2.4rem;
         text-transform: uppercase;
+        text-decoration: none;
 
         &:before {
           content: '';
@@ -54,7 +55,7 @@ module.exports = (state, prev, send) => {
   // navigate to view
   const goToView = (href) => {
     send('sidebar:setActiveRoute', href);
-    send('location:setLocation', { location: href });
+    // send('location:setLocation', { location: href });
 
     if(window.screen && window.screen.width <= 768) {
       send('sidebar:setActiveState', !activeState);
@@ -76,11 +77,9 @@ module.exports = (state, prev, send) => {
   return html`
     <nav class=${style}>
       ${navigation.map((route) => (html`
-        <button
-          class="${checkActiveState(route.slug)}"
-          onclick=${() => { goToView(route.slug); }}>
+        <a href="${route.slug}" class="${checkActiveState(route.slug)}">
             ${route.label}
-        </button>
+        </a>
       `))}
     </nav>
   `;

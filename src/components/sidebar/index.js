@@ -48,11 +48,6 @@ module.exports = (state, prev, send) => {
     }
   `;
 
-  // if not present, get content
-  if (!navigation.length || !socials.length || !languages.length) {
-    send('sidebar:fetchContent');
-  }
-
   // Return the rendered HTML
   return html`
     <aside class="${style}" data-activated="${state.sidebar.activeState}">
