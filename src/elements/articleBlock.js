@@ -1,10 +1,10 @@
 const html = require('choo/html');
 const sf = require('sheetify');
-const svg = require('../svgIcon');
+const svg = require('../lib/svg.js');
 
 module.exports = (state, prev, send, data) => {
   const style = sf`
-    @import '../../styles/vars';
+    @import '../styles/vars';
 
     :host {
       display: block;
@@ -102,7 +102,7 @@ module.exports = (state, prev, send, data) => {
   `;
 
   return html`
-    <a href="/articles/${data.id}" class=${style}>
+    <a href="/${data.id}" class=${style}>
       <figure class="article__image">
         <img src="${data.img}" />
       </figure>

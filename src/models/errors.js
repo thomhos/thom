@@ -8,14 +8,14 @@
 const ERROR_TIMEOUT = 1000
 
 module.exports = {
-  namespace: 'app',
+  namespace: 'errors',
   state: {
     error: [],
     errorTimeDone: null,
     triggerTime: null
   },
   reducers: {
-    error: function (action, state) {
+    error: (action, state) => {
       const now = Date.now()
       const timeDone = state.errorTimeDone
       const newTimestamp = (timeDone && timeDone >= now)
@@ -27,16 +27,16 @@ module.exports = {
         errorTimeDone: newTimestamp
       }
     },
-    'error:delete': function (action, state) {
+    'error:delete': (action, state) => {
       state.error.shift()
       return { error: state.error }
     }
   },
   effects: {
-    error: function (action, state, send) {
+    error: (action, state, send) => {
       const timeout = state.errorTimeDone - Date.now()
       setTimeout(function () {
-        send('app:error:delete')
+        send('errors:error:delete')
       }, timeout)
     }
   }

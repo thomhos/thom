@@ -8,11 +8,11 @@ module.exports = {
     counter: 0,
     articles: []
   },
-  effects: {
-    fetch: (data, state, send, done) => request(config.api.articles, send, done),
-  },
   reducers: {
     receive: (data, state) => ({ articles: data, counter: data.length })
+  },
+  effects: {
+    fetch: (data, state, send, done) => request(config.api.articles, send, done),
   },
 };
 

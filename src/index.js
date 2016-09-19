@@ -1,22 +1,33 @@
 const choo = require('choo');
-const sf = require('sheetify');
+const styles = require('./styles');
 const models = require('./models');
-const routes = require('./routes');
+const speech = require('./speech.js');
+
+// Define the pages we use in the router
+const main = require('./pages/main.js');
+const home = require('./pages/sub/home.js');
+const article = require('./pages/sub/article.js');
 
 // Define the app instance
 const app = choo();
 
 // Add the base styles
-sf('./styles/normalize.scss', { global: true })
-sf('./styles/typography.scss', { global: true })
-sf('./styles/html.scss', { global: true })
+styles();
 
 // Mount all the models
 models(app);
 
 // Mount all the routes
-routes(app);
+app.router('/', (route) => [
+  route('/', main(home)),
+  route('/:article', main(article)),
+]);
 
+
+// Add the speech lib
+speech();
+
+// Middleware only for dev.
 app.use({
   onAction: (data, state, name, caller, createSend) => {
     console.groupCollapsed(`Action: ${caller} -> ${name}`);

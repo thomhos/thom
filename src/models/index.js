@@ -1,13 +1,14 @@
 // import all models here
-const sidebarModel = require('./sidebar.js');
-const articlesModel = require('./articles.js');
+const appModel = require('./app.js');
 const errorsModel = require('./errors.js');
+const articlesModel = require('./articles.js');
+const articleModel = require('./article.js');
 
 module.exports = (app) => {
 
   // mount all models
-  app.model(sidebarModel);
+  app.model(appModel);
   app.model(articlesModel);
-  app.model(errorsModel);
+  app.model(articleModel);
 
 };

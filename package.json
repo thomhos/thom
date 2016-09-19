@@ -37,6 +37,8 @@
     "yo-yoify": "^3.4.1"
   },
   "dependencies": {
+    "assert": "^1.4.1",
+    "bel": "^4.4.3",
     "choo": "^3.3.0",
     "express": "^4.14.0",
     "sheetify": "^5.1.0"
