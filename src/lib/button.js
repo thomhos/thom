@@ -16,7 +16,7 @@ module.exports = (opts, onClick) => {
       text-align: center;
       line-height: 50px;
 
-      background-color: transparent;
+      background-color: $color-white;
       border: 1px solid $color-grey;
       cursor: pointer;
 

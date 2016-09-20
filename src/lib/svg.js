@@ -82,6 +82,18 @@ module.exports = (icon) => {
       `;
       break;
 
+    case 'plus':
+      return html`
+        <svg width="12" height="12" viewBox="0 0 12 12" namespace="http://www.w3.org/2000/svg">
+          <path d="M5.07 11.97h1.817v-4.7h4.71V5.453h-4.71V.73H5.07v4.723H.36V7.27h4.71" fill="#000" fill-rule="evenodd"/>
+        </svg>
+      `;
+      break;
+
+
+
+
+
   }
 
 }

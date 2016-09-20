@@ -1,33 +1,69 @@
 const html = require('choo/html');
 const sf = require('sheetify');
-const header = require('../../elements/header.js');
-const articleBlock = require('../../elements/articleBlock.js');
+const contactBlock = require('../../elements/contactBlock');
+const i18n = require('i18next');
 
 module.exports = (state, prev, send) => {
   const style = sf`
     @import '../../styles/vars';
 
     :host {
-      max-width: 960px;
-      max-height: 500px;
+      max-width: 480px;
+      margin: 0 auto;
 
-      margin: 0 20px;
-      padding: 20px 0;
+      @media screen and (min-width: 768px) {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
-      @media screen and (min-width: 1024px) {
-        margin: 0 auto;
-        padding: 40px 0;
+      &:before {
+        content: '';
+        position: absolute;
+        width: 350px;
+        height: 350px;
+
+        top: 30%;
+        left: -180px;
+        transform: translateY(-50%);
+
+        border-radius: 50%;
+        background-color: $color-active;
+      }
+
+      > h1 {
+        display: block;
+        line-height: 1.2;
+      }
+
+      > span {
+        display: block;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+
+      > p {
+        font-size: 2.4rem;
+        line-height: 1.5;
+      }
+
+      > ul {
+        margin-top: 40px;
       }
     }
   `;
 
-  const { articles, counter, filter } = state.articles;
-
   return html`
-    <section class=${style} onload=${() => send('articles:fetch')}>
-      ${header(state, prev, send)}
-      filter
-      ${articles.map(data => articleBlock(state, prev, send, data))}
-    </section>
+
+    <article class=${style}>
+
+      <h1>${i18n.t('name')}</h1>
+      <span>${i18n.t('function')}</span>
+      <p>${i18n.t('description')}</p>
+
+      ${contactBlock(state, prev, send)}
+    </article>
+
   `;
 };

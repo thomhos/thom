@@ -1,15 +1,18 @@
 const choo = require('choo');
 const styles = require('./styles');
 const models = require('./models');
-const speech = require('./speech.js');
+const speech = require('./plugins/speech.js');
+const translation = require('./plugins/translation.js');
 
 // Define the pages we use in the router
 const main = require('./pages/main.js');
 const home = require('./pages/sub/home.js');
-const article = require('./pages/sub/article.js');
 
 // Define the app instance
 const app = choo();
+
+// Add the speech lib
+speech();
 
 // Add the base styles
 styles();
@@ -20,12 +23,7 @@ models(app);
 // Mount all the routes
 app.router('/', (route) => [
   route('/', main(home)),
-  route('/:article', main(article)),
 ]);
-
-
-// Add the speech lib
-speech();
 
 // Middleware only for dev.
 app.use({
@@ -36,9 +34,10 @@ app.use({
   },
 });
 
-// Run forrest, run
-const tree = app.start();
+translation().init(() => {
+  // Run forrest, run
+  const tree = app.start();
 
-// append the app tree
-document.body.appendChild(tree);
-document.body.classList.remove('is--loading')
+  // append the app tree
+  document.body.appendChild(tree);
+})

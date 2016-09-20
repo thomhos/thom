@@ -2,6 +2,7 @@ const html = require('bel');
 const sf = require('sheetify');
 const button = require('../lib/button.js');
 const svg = require('../lib/svg.js');
+const i18n = require('i18next');
 
 module.exports = (state, prev, send) => {
 
@@ -44,7 +45,7 @@ module.exports = (state, prev, send) => {
   };
 
   function switchLanguage(e, lang) {
-    console.log(lang)
+    send('app:toggleLanguage', lang);
   };
 
   return html`

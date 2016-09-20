@@ -11,7 +11,8 @@
     "prebuild": "rimraf build && mkdir -p build && npm-run-all copy:*",
     "build": "browserify src/index.js -t yo-yoify -t [ sheetify/transform -u sheetify-sass -u sheetify-cssnext ] -p [ css-extract -o build/bundle.css ] src/index.js -g [ babelify --presets [ es2015 ] ] -o build/bundle.js",
     "copy:html": "copyfiles -f src/index.html build",
-    "copy:fonts": "copyfiles -f src/styles/fonts/* build/fonts"
+    "copy:fonts": "copyfiles -f src/assets/fonts/* build/fonts",
+    "copy:translations": "copyfiles -f src/assets/translations/* build/translations"
   },
   "keywords": [],
   "author": "",
@@ -41,6 +42,7 @@
     "bel": "^4.4.3",
     "choo": "^3.3.0",
     "express": "^4.14.0",
+    "i18next": "^3.4.2",
     "sheetify": "^5.1.0"
   }
 }

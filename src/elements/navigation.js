@@ -12,6 +12,7 @@ module.exports = (state, prev, send, data) => {
       z-index: 1;
       font-size: 0;
       border-bottom: 1px solid $color-grey;
+      background-color: $color-white;
 
       > div {
         display: inline-block;

@@ -4,6 +4,7 @@ $color-grey-dark:     #242424;
 $color-grey-medium:   #000;
 $color-grey:          #C9C9C9;
 $color-grey-light:    #efefef;
+$color-grey-lightest: #F4F4F4;
 $color-white:         #fff;
 
 $color-active:        #FF7575;
@@ -11,7 +12,7 @@ $color-active:        #FF7575;
 $color-text:          $color-black;
 
 //  _Type
-$font-stack-primary:    'Montserrat', sans-serif;
+$font-stack-primary:    'Averta', sans-serif;
 $font-stack-secondary:  'Open Sans', sans-serif;
 
 $font-size-root:        10px;
@@ -27,4 +28,5 @@ $font-line-height-h3:   1.5;
 
 $font-weight-light:     200;
 $font-weight-regular:   400;
+$font-weight-semibold:  500;
 $font-weight-bold:      600;

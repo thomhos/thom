@@ -2,7 +2,7 @@
 
 html {
 
-  font-family: $font-stack-secondary;
+  font-family: $font-stack-primary;
   font-size: $font-size-root;
   color: $color-text;
 
@@ -30,7 +30,7 @@ html, body {
 }
 
 body {
-  
+
   font-size: $font-size-body;
   line-height: $font-line-height-body;
   font-weight: $font-weight-regular;

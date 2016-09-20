@@ -1,9 +1,9 @@
 const html = require('bel');
 const sf = require('sheetify');
 const svg = require('../lib/svg.js');
+const i18n = require('i18next');
 
 module.exports = (state, prev, send) => {
-
   const style = sf`
     @import '../styles/vars';
 
@@ -17,7 +17,7 @@ module.exports = (state, prev, send) => {
 
       span {
         vertical-align: middle;
-        font-size: 1rem;
+        font-size: 1.1rem;
         margin-right: 10px;
       }
 
@@ -68,17 +68,19 @@ module.exports = (state, prev, send) => {
     }
   `;
 
+  const { listening } = state.app;
+
   function onClick(e) {
-    e.target.classList.toggle('listening');
+    send('app:listen', !listening);
   };
 
   return html`
     <div class=${style}>
       <span>
-        Talk to me!
+        ${i18n.t('voice')}
       </span>
 
-      <button onclick=${onClick}>
+      <button class="${ (listening) ? 'listening' : ''}" onclick=${onClick}>
         ${svg('microphone')}
       </button>
     </div>
