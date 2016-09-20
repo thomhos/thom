@@ -5,4 +5,5 @@ module.exports = () => {
   sf('./font-face.scss', { global: true })
   sf('./typography.scss', { global: true })
   sf('./html.scss', { global: true })
+  sf('./animations.scss', { global: true })
 };

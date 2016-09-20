@@ -3,8 +3,8 @@
     "en": "en",
     "kr": "kr"
   },
-  "voice": "Click for voice commands",
+  "contact": "Send me an email!",
   "name": "Thom Hos",
-  "function": "Javascript developer",
-  "description": "Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. v Lorem ipsum dolor sit amet."
+  "function": "Javascript developer at Tam Tam (part of Dept)",
+  "description": "I'm a frontend developer with a strong focus on javascript development. I enjoy creating web apps with the latest tech that are both smart and beautiful."
 }

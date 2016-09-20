@@ -1,7 +1,7 @@
 const html = require('choo/html');
 const sf = require('sheetify');
-const contactBlock = require('../../elements/contactBlock');
 const i18n = require('i18next');
+const link = require('../../lib/link.js');
 
 module.exports = (state, prev, send) => {
   const style = sf`
@@ -9,13 +9,15 @@ module.exports = (state, prev, send) => {
 
     :host {
       max-width: 480px;
-      margin: 0 auto;
+      margin: 40px auto 0;
+      animation: $fadeIn;
 
       @media screen and (min-width: 768px) {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        margin: 100px auto 0;
+      }
+
+      &.exit {
+        animation: $fadeOut;
       }
 
       &:before {
@@ -24,12 +26,12 @@ module.exports = (state, prev, send) => {
         width: 350px;
         height: 350px;
 
-        top: 30%;
+        top: -30px;
         left: -180px;
-        transform: translateY(-50%);
 
         border-radius: 50%;
-        background-color: $color-active;
+
+        animation: $animating-background;
       }
 
       > h1 {
@@ -46,23 +48,33 @@ module.exports = (state, prev, send) => {
       > p {
         font-size: 2.4rem;
         line-height: 1.5;
+        margin-bottom: 40px;
       }
 
-      > ul {
-        margin-top: 40px;
+      > a {
+        font-size: 2.4rem;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+
+        > svg {
+          margin-top: -5px;
+          width: 18px;
+          height: 18px;
+        }
       }
     }
   `;
 
   return html`
 
-    <article class=${style}>
+    <article class=${style} onunload=${(el) => { console.log('unload'); el.classList.add('exit'); }}>
 
       <h1>${i18n.t('name')}</h1>
       <span>${i18n.t('function')}</span>
       <p>${i18n.t('description')}</p>
 
-      ${contactBlock(state, prev, send)}
+      ${link({ href: '/work', label: 'View work', icon: 'plus', target: '_self'})}
+
     </article>
 
   `;

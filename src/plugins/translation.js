@@ -8,6 +8,7 @@ module.exports = () => {
     whitelist: ['en', 'kr'],
     fallbackLng: 'en',
     lng: 'en',
+    load: 'all',
     backend: {
       loadPath: '/translations/{{lng}}.json'
     }

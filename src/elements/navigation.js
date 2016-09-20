@@ -1,7 +1,7 @@
 const html = require('choo/html');
 const sf = require('sheetify');
 const button = require('../lib/button.js');
-const speechButton = require('./speechButton.js');
+const contactButton = require('./contactButton.js');
 const languageSwitch = require('./languageSwitch.js');
 
 module.exports = (state, prev, send, data) => {
@@ -31,7 +31,7 @@ module.exports = (state, prev, send, data) => {
     <nav class=${style}>
       ${button({ type: 'link', href: '/', icon: 'thom'}, () => {} )}
       <div>
-        ${speechButton(state, prev, send)}
+        ${contactButton(state, prev, send)}
         ${languageSwitch(state, prev, send)}
       </div>
     </nav>

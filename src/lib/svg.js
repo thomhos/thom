@@ -5,9 +5,9 @@ module.exports = (icon) => {
   switch(icon) {
     case 'email':
       return html`
-        <svg width="14" height="11" viewBox="0 0 14 11" namespace="http://www.w3.org/2000/svg">
-          <path d="M12.6 2.75L7 6.188 1.4 2.75V1.375L7 4.813l5.6-3.438V2.75zm0-2.75H1.4C.623 0 0 .612 0 1.375v8.25C0 10.385.627 11 1.4 11h11.2c.773 0 1.4-.616 1.4-1.375v-8.25C14 .612 13.37 0 12.6 0z" fill="#242424" fill-rule="evenodd"/>
-        </svg>`;
+      <svg width="24" height="24"  viewBox="0 0 24 24" namespace="http://www.w3.org/2000/svg">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+      </svg>`;
       break;
 
     case 'github':

@@ -11,6 +11,13 @@ $color-active:        #FF7575;
 
 $color-text:          $color-black;
 
+//  _Animations
+$animating-background:  circleColor 200s infinite;
+$animating-border:      borderColor 200s infinite;
+$pulsing:               pulsing 2s infinite;
+$fadeIn:                fadeIn 1s;
+$fadeOut:               fadeOut 1s;
+
 //  _Type
 $font-stack-primary:    'Averta', sans-serif;
 $font-stack-secondary:  'Open Sans', sans-serif;

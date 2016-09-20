@@ -5,6 +5,9 @@ module.exports = () => {
     var commands = {
       'hello': function() {
         console.log('hello')
+      },
+      'give me *num money': function(num) {
+        console.log('give me ' + num + ' moneys' )
       }
     };
 

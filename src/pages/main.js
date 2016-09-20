@@ -2,6 +2,7 @@ const html = require('choo/html');
 const sf = require('sheetify');
 const navigation = require('../elements/navigation');
 
+
 module.exports = (view) => (state, prev, send) => {
 
   const style = sf`
@@ -9,6 +10,11 @@ module.exports = (view) => (state, prev, send) => {
 
     :host {
       min-height: 100%;
+      animation: $fadeIn;
+
+      &.exit {
+        animation: $fadeOut;
+      }
 
       > main {
         min-height: calc( 100vh - 51px );
@@ -19,12 +25,13 @@ module.exports = (view) => (state, prev, send) => {
   `;
 
   return html`
-    <div class=${style}>
+    <div class="${style}">
       ${navigation(state, prev, send)}
       <main>
         ${view(state, prev, send)}
       </main>
     </div>
   `;
+
 
 };
