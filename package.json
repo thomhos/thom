@@ -4,20 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm run build",
-    "start": "npm-run-all --parallel start:*",
-    "start:serve": "browser-sync start --server 'build' --files 'build'",
-    "start:watch": "onchange 'src/**.*' -- npm run build",
+    "predev": "npm-run-all --parallel build:*",
+    "dev": "npm run serve",
+    "serve": "nodemon -w client -w server -e js,json,scss --exec \"npm-run-all --silent --parallel build:* && babel-node build\"",
     "prebuild": "rimraf build && mkdir -p build && npm-run-all copy:*",
-    "build": "browserify src/index.js -t yo-yoify -t [ sheetify/transform -u sheetify-sass -u sheetify-cssnext ] -p [ css-extract -o build/bundle.css ] src/index.js -g [ babelify --presets [ es2015 ] ] -o build/bundle.js",
-    "copy:html": "copyfiles -f src/index.html build",
-    "copy:fonts": "copyfiles -f src/assets/fonts/* build/fonts",
-    "copy:translations": "copyfiles -f src/assets/translations/* build/translations"
+    "build:client": "browserify client/index.js -t yo-yoify -t [ sheetify/transform -u sheetify-sass -u sheetify-cssnext ] -p [ css-extract -o build/bundle.css ] client/index.js -g [ babelify --presets [ es2015 ] ] -o build/bundle.js",
+    "build:server": "babel server -s -D -d build --presets es2015,stage-0",
+    "copy:html": "copyfiles -f client/index.html build",
+    "copy:fonts": "copyfiles -f client/assets/fonts/* build/fonts",
+    "copy:translations": "copyfiles -f client/assets/translations/* build/translations",
+    "prestart": "npm-run-all --parallel build:*",
+    "start": "node build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.14.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.3.0",
@@ -26,9 +29,11 @@
     "copyfiles": "^1.0.0",
     "css-extract": "^1.1.2",
     "envify": "^3.4.1",
+    "nodemon": "^1.10.2",
     "npm-run-all": "^3.1.0",
     "onchange": "^3.0.2",
     "rfr": "^1.2.3",
+    "rimraf": "^2.5.4",
     "sheetify-cssnext": "^1.0.7",
     "sheetify-sass": "^1.0.1",
     "sheetify-variables": "^1.0.4",
@@ -40,9 +45,13 @@
   "dependencies": {
     "assert": "^1.4.1",
     "bel": "^4.4.3",
+    "body-parser": "^1.15.2",
     "choo": "^3.3.0",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "i18next": "^3.4.2",
+    "keystone": "^4.0.0-beta.2",
+    "multer": "0.1.8",
     "sheetify": "^5.1.0"
   }
 }

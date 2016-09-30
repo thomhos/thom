@@ -19,20 +19,6 @@ module.exports = (state, prev, send) => {
         animation: $fadeOut;
       }
 
-      &:before {
-        content: '';
-        position: absolute;
-        width: 350px;
-        height: 350px;
-
-        top: -30px;
-        left: -180px;
-
-        border-radius: 50%;
-
-        animation: $animating-background;
-      }
-
       > p {
         font-size: 2.4rem;
         line-height: 1.5;
@@ -41,12 +27,10 @@ module.exports = (state, prev, send) => {
   `;
 
   return html`
-
-    <section class=${style} onunload=${(el) => { console.log('unload'); el.classList.add('exit'); }}>
+    <section class=${style}>
 
       <p>WORK, WORK, WORK, WORK, WORK, WORK.</p>
 
     </section>
-
   `;
 };

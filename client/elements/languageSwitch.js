@@ -1,4 +1,4 @@
-const html = require('bel');
+const html = require('choo/html');
 const sf = require('sheetify');
 const button = require('../lib/button.js');
 const svg = require('../lib/svg.js');
